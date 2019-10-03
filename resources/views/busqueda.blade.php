@@ -12,12 +12,18 @@
                         <p class="p-2"></p>
                         <p class="lead">Tu código de confirmación es <h1>{{$user->codigo_confirmacion}}</h1></p>
                         <p class="lead">Te sugerimos tenerlo a la mano a la hora de realizar tu registro el día del evento.</p> 
-
+                        <p >
+                            <a href="{{route('folio',[$user->codigo_confirmacion])}}" target=”_blank” class="btn btn-success">
+                                <i class="fa fa-print" aria-hidden="true"></i>
+                                DESCARGA CÓDIGO 
+                            </a> 
+                        </p>
                         <div class="row mb50">
                             <div class="col-md-6 ml-auto mr-auto text-center">
-                                <a href=" {{ url('/') }} " style="margin-top:35px;box-sizing:border-box;border-radius:3px;color:#fff;display:inline-block;text-decoration:none;background-color:#ed8407;border-top:10px solid #ed8407;border-right:18px solid #ed8407;border-bottom:10px solid #ed8407;border-left:18px solid #ed8407">
+                           
+                                <a href=" {{ url('/') }} " class="btn btn-outline-success">
                                     <i class="fa fa-home" aria-hidden="true"></i>                           
-                                    Terminar proceso de registro
+                                    Regresar
                                 </a>                                        
                             </div>
                         </div>   

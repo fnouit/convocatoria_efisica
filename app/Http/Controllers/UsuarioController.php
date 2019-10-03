@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Usuario;
 use App\Region;
 use App\Delegacion;
+use PDF;
 use Redirect;
 
 use Illuminate\Http\Request;
@@ -123,6 +124,16 @@ class UsuarioController extends Controller
         }   */     
 
     }
-
-
+    public function folio($codigo_confirmacion)
+    {
+        $usuario = Usuario::where('codigo_confirmacion', $codigo_confirmacion)->get();
+        // $usuario = Usuario::find($codigo_confirmacion);
+        // return view ('congreso-preescolar.pdf_export')->with(compact('usuario'));
+    
+        $pdf = PDF::loadView('pdf_export',['usuario' => $usuario]); # Carga una vista 
+    
+    
+        // return $pdf->stream(); # muestra el PDF en una ventana
+        return $pdf->download(); # descarga el PDF
+    }
 }

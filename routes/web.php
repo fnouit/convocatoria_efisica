@@ -25,3 +25,17 @@ Route::post('/nuevo_usuario', 'UsuarioController@store')->name('nuevo.registro')
 Route::get('/confirmacion/{code}/registro', 'UsuarioController@show')->name('confirmacion.registro');
 
 Route::post('/buscar', 'UsuarioController@busqueda')->name('buscar.registro');
+
+Route::get('/folio/{codigo_confirmacion}', 'UsuarioController@folio')->name('folio'); # Exportar pdf
+# Ruta de creación de PDF
+Route::get('/pdf', function()
+{
+    
+    // $pdf = PDF::loadHtml('<h1>Prueba</h1>'); # Carga un HTML
+    
+    $pdf = PDF::loadView('pdf_export'); # Carga una vista 
+    
+    
+    // return $pdf->stream(); # muestra el PDF en una ventana
+    return $pdf->download(); # descarga el PDF
+});
