@@ -104,9 +104,13 @@ class UsuarioController extends Controller
 
     public function busqueda (Request $request) {
 
-        $condicion = $request->get('tipo');
         $busqueda = $request->get('busqueda');
+        $usuario = Usuario::codigo($busqueda)->get();
 
+        return view('busqueda', compact('usuario'));
+
+/*         $condicion = $request->get('tipo');
+        $busqueda = $request->get('busqueda');
 
         if($condicion == "folio"){
             return Redirect::to('confirmacion/'.$busqueda.'/registro');
@@ -114,16 +118,9 @@ class UsuarioController extends Controller
             return Redirect::to('http://www.youtube.com');
         }
 
-        
-
-
-
-
-
-
         if($condicion == "np"){
             return Redirect::to('http://www.youtube.com');
-        }       
+        }   */     
 
     }
 

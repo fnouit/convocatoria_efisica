@@ -16,4 +16,8 @@ class Usuario extends Model
             return $query->where('correo', $correo);
         }
     }    
+
+    public function scopeCodigo($query, string $codigo) {
+        return $query->where('codigo_confirmacion', $codigo);
+     }
 }
