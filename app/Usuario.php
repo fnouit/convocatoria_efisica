@@ -20,4 +20,10 @@ class Usuario extends Model
     public function scopeCodigo($query, string $codigo) {
         return $query->where('codigo_confirmacion', $codigo);
      }
+
+    public function scopeNum($query, string $num) {
+    return $query->where('num_personal', $num);
+    }     
+     
+
 }

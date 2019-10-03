@@ -237,7 +237,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Buscar </h2>
-                <h3 class="section-subheading text-muted">hacer una busqueda</h3>
+                <h3 class="section-subheading text-muted">Puedes verificar el registro ingresando tu número de folio o tu número de personal</h3>
             </div>
         </div>
 
@@ -248,36 +248,33 @@
                     {{ csrf_field() }}
                     <div class="messages"></div>
                     <div class="controls">
-                        <h5 class="text-uppercase text-secondary mb-3">Datos Personales</h5>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-
-                                    <select name="tipo" id="tipo">
-                                        <option value="folio">Folio</option>
-                                        <option value="np">Número personal</option>
+                                    <label for="tipo">¿De qué forma deseas realizar tu búsqueda?</label>
+                                    <select class="form-control" id="tipo" name="tipo">
+                                        <option disabled selected>Selecciona alguna</option>
+                                        <option value="folio" selected="selected">Por folio</option>
+                                        <option value="np">Por número de personal</option>
                                     </select>
-                                    
-                                    <input id="buscar" type="text" name="busqueda" class="form-control"
-                                        placeholder="Ingresa tú busqueda"
-                                        >
                                 </div>
+                                <div class="form-group">
+                                    <input id="buscar" type="text" name="busqueda" class="form-control" placeholder="Ingresa tú busqueda" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-success btn-send" value="Consultar">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <img src="{{asset('img/img2.jpg')}}" alt="">
                             </div>
 
                         </div>
                     </div>
-
                     <div class="clearfix"></div>
                     <p class="p-3"></p>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <center><input type="submit" class="btn btn-warning btn-send" value="Consultar">
-                            </center>
-                        </div>
-                    </div>
                 </form>
-
 
             </div>
         </div>

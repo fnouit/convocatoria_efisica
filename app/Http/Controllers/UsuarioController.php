@@ -105,23 +105,21 @@ class UsuarioController extends Controller
 
     public function busqueda (Request $request) {
 
-        $busqueda = $request->get('busqueda');
-        $usuario = Usuario::codigo($busqueda)->get();
-
-        return view('busqueda', compact('usuario'));
-
-/*         $condicion = $request->get('tipo');
-        $busqueda = $request->get('busqueda');
-
+        $condicion = $request->get('tipo');
+        // $busqueda = $request->get('busqueda');
+        
         if($condicion == "folio"){
-            return Redirect::to('confirmacion/'.$busqueda.'/registro');
+            $busqueda = $request->get('busqueda');
+            $usuario = Usuario::codigo($busqueda)->get();
+    
+            return view('busqueda', compact('usuario'));
+    
         } else {
-            return Redirect::to('http://www.youtube.com');
-        }
+           $busqueda = $request->get('busqueda');
+           $usuario = Usuario::num($busqueda)->get();
 
-        if($condicion == "np"){
-            return Redirect::to('http://www.youtube.com');
-        }   */     
+           return view('busqueda', compact('usuario'));
+        }
 
     }
     public function folio($codigo_confirmacion)
